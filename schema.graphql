@@ -1,0 +1,32 @@
+type News {
+	id_news: Int
+	title: String
+	image: String
+	news_content: String
+	dlt: Int
+}
+type News_with_comments {
+	id_news: Int
+	title: String
+	image: String
+	news_content: String
+	dlt: Int
+	comments: [Comments]
+}
+type Comments {
+	name: String
+	comment: String
+	id_news: Int
+}
+type Query {
+	Newss: [News]
+	Commentss: [Comments]
+}
+type Mutation {
+	add_news(title: String, image: String, news_content: String): News,
+	news_detail(id_news: Int): News_with_comments,
+	edit_news(id_news:Int, title: String, image: String, news_content: String): News,
+	delete_news(id_news: Int): News,
+
+	add_comment(name: String, comment: String, id_news: Int): Comments,
+}
